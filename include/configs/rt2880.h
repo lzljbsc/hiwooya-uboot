@@ -96,9 +96,10 @@ extern unsigned int  CFG_BLOCKSIZE;
 
 #define CONFIG_BAUDRATE		57600
 
-#define CONFIG_SERVERIP 10.10.10.3
-#define CONFIG_IPADDR 10.10.10.2
-#define CONFIG_ETHADDR "00:AA:BB:CC:DD:10"
+#define CONFIG_SERVERIP     192.168.1.30
+#define CONFIG_IPADDR       192.168.1.8
+#define CONFIG_ETHADDR      "20:23:06:26:20:29"
+
 /* valid baudrates */
 #define CFG_BAUDRATE_TABLE	{ 9600, 19200, 38400, 57600, 115200 }
 
