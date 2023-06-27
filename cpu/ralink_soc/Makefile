@@ -25,11 +25,7 @@ include $(TOPDIR)/config.mk
 
 LIB	= lib$(CPU).a
 
-ifeq ($(MT7621_MP), y)
-START	= start_1004k.o
-else
 START	= start.o
-endif
 
 OBJS	= cpu.o
 SOBJS	= cache.o

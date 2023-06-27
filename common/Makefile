@@ -41,25 +41,10 @@ ifeq ($(RALINK_UPGRADE_BY_SERIAL),ON)
 COBJS += cmd_load.o
 endif
 
-ifeq ($(RALINK_USB),ON)
-COBJS += usb.o usb_storage.o cmd_usb.o cmd_fat.o
-endif
-
-ifeq ($(MTK_USB),ON)
-COBJS += usb.o usb_storage.o cmd_usb.o cmd_fat.o
-endif
-
-
 OBJS	= $(AOBJS) $(COBJS)
 
-ifeq ($(CFG_ENV_IS), IN_FLASH)
-OBJS	+= cmd_flash.o env_flash.o flash.o cmd_mem.o
-endif
 ifeq ($(CFG_ENV_IS), IN_SPI)
 OBJS	+= env_spi.o
-endif
-ifeq ($(CFG_ENV_IS), IN_NAND)
-OBJS	+= env_nand.o
 endif
 
 CPPFLAGS += -I..
