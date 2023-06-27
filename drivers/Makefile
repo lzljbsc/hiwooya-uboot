@@ -33,57 +33,10 @@ ifeq ($(RALINK_MDIO_ACCESS_FUN),ON)
 OBJS	+= mii_mgr.o
 endif
 
-ifeq ($(CFG_ENV_IS), IN_FLASH)
-OBJS	+= spi_drv.o 
-endif
-
 ifeq ($(CFG_ENV_IS), IN_SPI)
- ifeq ($(RT6855A_MP), y)
- OBJS	+= spi_rt6855A_flash.o 
- else
- ifeq ($(MT7621_MP), y)
- OBJS	+= spi_rt6855A_flash.o 
- else
  ifeq ($(MT7628_MP), y)
  OBJS	+= spi_rt6855A_flash.o 
- else
- OBJS	+= spi_flash.o 
  endif
- endif
- endif
- ifeq ($(RT3883_MP), y)
- OBJS	+= spi_drv.o 
- endif
-endif
-
-ifeq ($(CFG_ENV_IS), IN_NAND)
- ifeq ($(MT7621_MP), y)
-	OBJS    += nand/mtk_nand.o nand/bmt.o nand/nand_base.o nand/nand_ids.o
- else
-OBJS	+= nand_flash.o 
- endif
- ifeq ($(RT3883_MP), y)
- OBJS	+= spi_drv.o 
- endif
-endif
-
-ifeq ($(MTK_XHCI), ON)
-OBJS	+= usb/host/xhci.o usb/host/xhci-mem.o usb/host/xhci-ring.o usb/host/xhci-mtk.o usb/host/xhci-mtk-power.o usb/host/xhci-mtk-scheduler.o usb/host/mtk-phy.o usb/host/mtk-phy-ahb.o usb/host/mtk-phy-7621.o
-endif
-
-ifeq ($(RALINK_OHCI), ON)
-OBJS	+= ohci-hcd.o
-endif
-
-ifeq ($(RALINK_EHCI), ON)
-OBJS	+= ehci-hcd.o ehci-ra.o
-endif
- 
-ifeq ($(RALINK_EPHY_TESTER), ON)
-OBJS   += phy_val.o 
-endif
-ifeq ($(MTK_MSDC), ON)
-OBJS	+= msdc/mmc_core.o msdc/mmc_test.o msdc/msdc.o msdc/msdc_cust.o msdc/ts_msdc.o
 endif
 
 all:	$(LIB)

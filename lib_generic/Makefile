@@ -27,20 +27,8 @@ LIB	= libgeneric.a
 
 OBJS	= crc32.o ctype.o display_options.o string.o vsprintf.o
 
-ifeq ($(CONFIG_GZIP),ON)
-OBJS   += zlib.o
-endif
-
-ifeq ($(CONFIG_BZIP2),ON)
-OBJS   += bzlib.o bzlib_crctable.o bzlib_randtable.o bzlib_decompress.o bzlib_huffman.o
-endif
-
 ifeq ($(CONFIG_LZMA),ON)
 OBJS   += LzmaDecode.o
-endif
-
-ifeq ($(CONFIG_XZ),ON)
-OBJS   += decompress_unxz.o xz_dec_bcj.o xz_dec_lzma2.o xz_dec_stream.o
 endif
 
 $(LIB):	.depend $(OBJS)
