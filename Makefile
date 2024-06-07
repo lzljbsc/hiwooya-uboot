@@ -47,7 +47,7 @@ export	TOPDIR
 ifeq ($(MT7621_MP), y)
 CONFIG_CROSS_COMPILER_PATH ?= /opt/mips-2012.03/bin/
 else
-CONFIG_CROSS_COMPILER_PATH ?= /opt/buildroot-gcc342/bin
+CONFIG_CROSS_COMPILER_PATH ?= /opt/toolchain/buildroot-gcc342/bin
 endif
 
 ifeq (include/config.mk,$(wildcard include/config.mk))
